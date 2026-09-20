@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- social:start -->
+<meta name="description" content="Six sessions on the loop that makes a note collection pay: capture, organize, retrieve, review - in any tool. With a bench that files one real collection five ways and counts what you could still get back eight months later. Free, by Phoebe Fu.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Learn with Phoebe">
+<meta property="og:title" content="Learn PKM with Phoebe">
+<meta property="og:description" content="One big folder answers zero of sixteen questions by looking. Sorting into topics fixes tidiness and not retrieval. Thirty-seven links fix both.">
+<meta property="og:url" content="https://phoebefu6.github.io/learn-pkm-with-phoebe/">
+<meta property="og:image" content="https://phoebefu6.github.io/learn-pkm-with-phoebe/assets/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Learn PKM with Phoebe">
+<meta name="twitter:description" content="Six sessions on capture, organize, retrieve and review, with a bench that measures what a collection can still give back.">
+<meta name="twitter:image" content="https://phoebefu6.github.io/learn-pkm-with-phoebe/assets/og-cover.png">
+<!-- social:end -->
+<title>Learn PKM with Phoebe</title>
+<link rel="stylesheet" href="assets/style.css?v=1">
+<style>
+
+  .stats-row { display: flex; gap: 2.4rem; margin-top: 1.5rem; flex-wrap: wrap; }
+  .stat b { display: block; font-size: 2.1rem; font-weight: 800; line-height: 1.05; font-variant-numeric: tabular-nums; }
+  .stat span { font-size: .72rem; opacity: .85; text-transform: uppercase; letter-spacing: .09em; font-weight: 600; }
+
+  .course-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr)); gap: 1rem; margin-top: 1.5rem; }
+  .course-card {
+    border: 1px solid var(--hairline);
+    border-top: 4px solid var(--diff, var(--indigo));
+    border-radius: var(--radius);
+    padding: 1.2rem 1.3rem 1.1rem;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    text-decoration: none;
+    color: var(--ink);
+    background: #fff;
+    transition: box-shadow .15s ease, border-color .15s ease, transform .15s ease;
+    position: relative;
+  }
+  .course-card:hover { border-color: var(--indigo-soft); border-top-color: var(--diff, var(--indigo)); box-shadow: 0 8px 28px rgba(92,68,51,.14); transform: translateY(-3px); }
+  .course-card .cicon { font-size: 1.7rem; line-height: 1; }
+  .course-card .cnum { font-size: .72rem; font-weight: 700; color: var(--indigo); text-transform: uppercase; letter-spacing: .1em; }
+  .course-card h3 { font-size: 1.05rem; font-weight: 800; line-height: 1.3; }
+  .course-card p { font-size: .85rem; color: var(--muted); flex: 1; }
+  .course-card .meta { display: flex; gap: .4rem; flex-wrap: wrap; }
+
+  .diff-legend { display: flex; gap: 1rem; margin-top: 1.6rem; font-size: .74rem; color: var(--muted); font-weight: 600; flex-wrap: wrap; }
+  .diff-legend i { display: inline-block; width: .85rem; height: .35rem; border-radius: 999px; margin-right: .35rem; vertical-align: middle; }
+
+  .paths { margin-top: 2.6rem; }
+  .paths h2 { font-size: 1.3rem; font-weight: 800; margin-bottom: .3rem; }
+  .paths .plede { color: var(--muted); font-size: .92rem; margin-bottom: .8rem; }
+  .path { display: flex; gap: .55rem; align-items: center; padding: .75rem 0; border-bottom: .5px solid var(--hairline); flex-wrap: wrap; }
+  .path:last-child { border-bottom: none; }
+  .path b { min-width: 15.5rem; font-size: .9rem; }
+  .path .pstep { background: var(--indigo-50); color: var(--indigo); border-radius: 999px; padding: .16rem .68rem; font-weight: 700; font-size: .8rem; text-decoration: none; transition: all .12s ease; }
+  .path .pstep:hover { background: var(--indigo); color: #fff; }
+  .path .parr { color: var(--faint); font-weight: 700; }
+
+  .mm-section { margin-top: 1.6rem; }
+  .mm-section h2 { font-size: 1.3rem; font-weight: 800; margin-bottom: .2rem; }
+  .mm-section .mm-lede { color: var(--muted); font-size: .92rem; margin-bottom: .4rem; }
+  .mm-wrap { border: 1px solid var(--hairline); border-radius: var(--radius); background: linear-gradient(180deg,#fff,#F5F1EC); padding: .6rem; overflow-x: auto; }
+  .mm-svg { width: 100%; height: auto; display: block; max-width: 60rem; margin: 0 auto; min-width: 34rem; }
+  .mm-link { cursor: pointer; text-decoration: none; }
+  .mm-node rect { transition: opacity .15s ease, filter .15s ease; }
+  .mm-node text { pointer-events: none; }
+  .mm-link:hover .mm-node rect { filter: brightness(1.06); }
+  .mm-edge { transition: opacity .15s ease; }
+
+  .not-this { border: 1px solid var(--hairline); border-left: 4px solid var(--jade); border-radius: var(--radius); background: #fff; padding: 1.1rem 1.3rem; margin-top: 1.2rem; }
+  .not-this h3 { font-size: .95rem; font-weight: 800; margin-bottom: .5rem; }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">Learn with Phoebe · Productivity &amp; Knowledge Systems</div>
+    <h1>Learn <span class="accent">PKM</span> with Phoebe</h1>
+    <p class="sub">Count what is in the place you keep things. Then count the last five times you needed something you knew you had saved, and how many you actually got back. Those two numbers are much further apart than anyone expects, and closing the gap is not a tidiness problem. Six sessions on the loop that makes a collection pay: what to capture and what to call it, where a note lives, what makes it reachable eight months later, and a review short enough to survive a bad week. Tool-agnostic, and honest about what the evidence does and does not support.</p>
+    <div class="stats-row">
+      <div class="stat"><b data-count="6">6</b><span>sessions</span></div>
+      <div class="stat"><b data-count="48">48</b><span>notes, one collection</span></div>
+      <div class="stat"><b data-count="0">0</b><span>found by looking, in one folder</span></div>
+      <div class="stat"><b data-count="14">14</b><span>of 16, once linked</span></div>
+      <div class="stat"><b data-count="45">45</b><span>min per session</span></div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="section">
+    <div class="paths" style="margin-top:0">
+      <h2>The six sessions 🎯 <span style="font-size:.85rem;font-weight:600;color:var(--muted)">· one collection, six passes</span></h2>
+      <p class="plede">The running situation is a real-shaped collection at <strong>Daybreak</strong>, the coffee-subscription company from the sibling courses: eighteen months of one person's notes, forty-eight of them, two live projects, a reference shelf and six notes called things like "Interesting". Every session does something different to that same collection, and session 4 asks it sixteen questions and counts how many it can still answer.</p>
+    </div>
+
+    <div class="course-grid">
+      <a class="course-card" href="courses/01-the-collection-problem.html" style="--diff:#7FD8CB">
+        <span class="cicon">📥</span>
+        <span class="cnum">Session 1 · easy</span>
+        <h3>The collection problem</h3>
+        <p>Saving is one click and finding is a guess, so collections grow and stop paying. What the research supports, what it does not, and the controlled study of PARA that does not exist.</p>
+        <span class="meta"><span class="pill amber">▶ Start here</span></span>
+      </a>
+      <a class="course-card" href="courses/02-capture-that-survives.html" style="--diff:#7FD8CB">
+        <span class="cicon">✂️</span>
+        <span class="cnum">Session 2 · easy</span>
+        <h3>Capture that survives</h3>
+        <p>A keep-or-drop rule you can apply in four seconds without arguing with yourself, one inbox, and the title that decides whether a note is ever findable again.</p>
+        <span class="meta"><span class="pill">four seconds</span></span>
+      </a>
+      <a class="course-card" href="courses/03-para-and-one-home.html" style="--diff:#FBBF24">
+        <span class="cicon">🗂️</span>
+        <span class="cnum">Session 3 · medium</span>
+        <h3>PARA, and one home per note</h3>
+        <p>Projects, areas, resources, archive, in the author's own words. Organize by actionability rather than by subject, one home plus a pointer, and what filing genuinely cannot fix.</p>
+        <span class="meta"><span class="pill">one home</span></span>
+      </a>
+      <a class="course-card" href="courses/04-the-retrieval-bench.html" style="--diff:#F87171">
+        <span class="cicon">📏</span>
+        <span class="cnum">Session 4 · bench night</span>
+        <h3>The retrieval bench</h3>
+        <p>One collection, five filings, sixteen questions asked eight months later. Found by looking, found by searching, or gone. Tidying moves one number and links move the other.</p>
+        <span class="meta"><span class="pill amber">★ the bench</span></span>
+      </a>
+      <a class="course-card" href="courses/05-review-that-actually-happens.html" style="--diff:#FBBF24">
+        <span class="cicon">🔁</span>
+        <span class="cnum">Session 5 · medium</span>
+        <h3>Review that actually happens</h3>
+        <p>Say what is in a note before you open it, because recalling beats rereading and rereading feels better. The gap that grows with the horizon, and a fifteen-minute weekly pass.</p>
+        <span class="meta"><span class="pill">fifteen minutes</span></span>
+      </a>
+      <a class="course-card" href="courses/06-a-system-you-keep.html" style="--diff:#FB923C">
+        <span class="cicon">🧭</span>
+        <span class="cnum">Session 6 · hands-on</span>
+        <h3>A system you keep</h3>
+        <p>The smallest version of the loop that still works when the week goes badly, what to do after a month away, and a final scorecard on the collection you actually have.</p>
+        <span class="meta"><span class="pill amber">🔒 final scorecard</span></span>
+      </a>
+    </div>
+
+    <div class="diff-legend">
+      <span><i style="background:#7FD8CB"></i>easy - everyone</span>
+      <span><i style="background:#FBBF24"></i>medium</span>
+      <span><i style="background:#FB923C"></i>hands-on</span>
+      <span><i style="background:#F87171"></i>bench night</span>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="paths" style="margin-top:0">
+      <h2>Your passport 🎫</h2>
+      <p class="plede">Clear all three quiz questions in a session and it gets stamped. Six stamps means the collection gives things back. Stamps live in this browser only.</p>
+    </div>
+    <div class="pp-strip"></div>
+  </section>
+
+  <section class="section">
+    <div class="not-this">
+      <h3>What this is not, so you land in the right place 🧭</h3>
+      <table class="clean">
+        <tr><th>If your question is</th><th>Go here instead</th></tr>
+        <tr><td>How do I link notes by idea, with atomic notes and permanent addresses, the Zettelkasten way?</td><td>the Obsidian course, when it lands</td></tr>
+        <tr><td>How do I read a book properly and turn it into notes?</td><td>the Reading course, when it lands</td></tr>
+        <tr><td>How do I build this as databases and dashboards in one specific tool?</td><td>the Notion and Obsidian courses</td></tr>
+        <tr><td>How do I capture a live talk on paper while somebody is still speaking?</td><td><a href="https://phoebefu6.github.io/learn-sketchnoting-with-phoebe/">Sketchnoting ↗</a></td></tr>
+        <tr><td>How do I give a topic a radial shape with one centre and keyword branches?</td><td><a href="https://phoebefu6.github.io/learn-mind-mapping-with-phoebe/">Mind Mapping ↗</a></td></tr>
+        <tr><td><strong>What do I keep, what do I call it, where does it live, and will I ever get it back?</strong></td><td><strong>you are in the right place</strong></td></tr>
+      </table>
+      <p style="margin-top:.7rem;font-size:.86rem;color:var(--muted)"><strong>This is the loop, not the tool.</strong> Everything here works in whatever you already use, and the author of the best-known method agrees: he calls "a second brain is one app you install" the number one myth about his own work.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="paths">
+      <h2>Choose your path 🗺️</h2>
+      <p class="plede">Three doors into the same conviction: a collection is not what you have, it is what you can get back.</p>
+      <div class="path"><b>😖 I save things and never find them</b>
+        <a class="pstep" href="courses/01-the-collection-problem.html">1</a><span class="parr">→</span>
+        <a class="pstep" href="courses/02-capture-that-survives.html">2</a><span class="parr">→</span>
+        <a class="pstep" href="courses/04-the-retrieval-bench.html">4</a>
+        <span style="font-size:.82rem;color:var(--muted)">the gap, the title that closes it, and the measurement</span>
+      </div>
+      <div class="path"><b>🗂️ My system is tidy and useless</b>
+        <a class="pstep" href="courses/03-para-and-one-home.html">3</a><span class="parr">→</span>
+        <a class="pstep" href="courses/04-the-retrieval-bench.html">4</a><span class="parr">→</span>
+        <a class="pstep" href="courses/05-review-that-actually-happens.html">5</a>
+        <span style="font-size:.82rem;color:var(--muted)">why filing is not finding, proved, then the loop that fixes it</span>
+      </div>
+      <div class="path"><b>🎯 The whole thing</b>
+        <a class="pstep" href="courses/01-the-collection-problem.html">1</a><span class="parr">→</span>
+        <a class="pstep" href="courses/02-capture-that-survives.html">2</a><span class="parr">→</span>
+        <a class="pstep" href="courses/03-para-and-one-home.html">3</a><span class="parr">→</span>
+        <a class="pstep" href="courses/04-the-retrieval-bench.html">4</a><span class="parr">→</span>
+        <a class="pstep" href="courses/05-review-that-actually-happens.html">5</a><span class="parr">→</span>
+        <a class="pstep" href="courses/06-a-system-you-keep.html">6</a>
+        <span style="font-size:.82rem;color:var(--muted)">from a pile that only grows to a loop you actually keep</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="paths" style="margin-top:0">
+      <h2>What is honest here 🧾</h2>
+      <p class="plede">There is no controlled study showing that PARA, a second brain, or any packaged note method improves what you retrieve or produce. That absence is the starting point of session 1, not something worked around. What is evidenced is the mechanisms these methods borrow, and those are quoted with both halves of every finding.</p>
+    </div>
+    <table class="clean">
+      <tr><th>Claim</th><th>Status</th></tr>
+      <tr><td>Found by looking, found by searching, lost; reachability, orphans, links, tag spread</td><td><strong>Really computed</strong> from the collection's own graph: a real traversal, a real folder walk, a real keyword match</td></tr>
+      <tr><td>The collection itself</td><td><strong>Constructed.</strong> Forty-eight notes written to be realistic. No published figures on real collection size, orphan rate or link density were found, so the numbers describe this collection and nothing else</td></tr>
+      <tr><td>The verdict line, and the thresholds</td><td><strong>Judgement,</strong> badged as a heuristic and printed on the widget so they can be argued with. The ordering of the five filings does not depend on them</td></tr>
+      <tr><td>"PARA is proven to work"</td><td><strong>Not claimed.</strong> Searched for directly across several angles; what exists is a separate, survey-based, correlational literature that does not test these methods</td></tr>
+      <tr><td>Retrieval practice and spacing</td><td><strong>Quoted with real numbers</strong> from the papers, including the ones the internet gets wrong: no "spacing doubles recall" figure exists in the paper it is attributed to</td></tr>
+      <tr><td>"Most people never reread their notes"</td><td><strong>Not stated.</strong> No study was found; the figure in circulation traces to one blogger testing their own workflow</td></tr>
+      <tr><td>Tagging</td><td><strong>Measured as cost and return in this collection only.</strong> No claim that tagging harms retrieval; the literature reports no clean winner between folders and tags</td></tr>
+    </table>
+  </section>
+
+  <section class="section mm-section">
+    <h2>The knowledge map 🧠</h2>
+    <p class="mm-lede">The whole course at a glance - hover a session to spotlight its concepts, click any node to jump in.</p>
+    <div class="mm-wrap"><div id="mindmap"></div></div>
+  </section>
+
+  <footer class="pagefoot">
+    <span>learn-pkm-with-phoebe · by Phoebe Fu &nbsp;·&nbsp; 📚 <a href="https://phoebefu6.github.io/learn-with-phoebe/">Learn with Phoebe ↗</a></span>
+    <span>Neighbours: <a href="https://phoebefu6.github.io/learn-sketchnoting-with-phoebe/">Sketchnoting ↗</a> &nbsp;·&nbsp; <a href="https://phoebefu6.github.io/learn-mind-mapping-with-phoebe/">Mind Mapping ↗</a> &nbsp;·&nbsp; <a href="https://phoebefu6.github.io/learn-markdown-with-phoebe/">Markdown ↗</a></span>
+  </footer>
+
+</main>
+
+<script>
+window.MINDMAP_DATA = {
+  title: "Learn\nPKM",
+  centerColor: "#3E2D21",
+  sessions: [
+    { label: "The collection\nproblem", href: "courses/01-the-collection-problem.html", color: "#7FD8CB",
+      concepts: [
+        { label: "Saving is cheap, finding is not", href: "courses/01-the-collection-problem.html" },
+        { label: "The study that does not exist", href: "courses/01-the-collection-problem.html" },
+        { label: "Confidence is the wrong signal", href: "courses/01-the-collection-problem.html" } ] },
+    { label: "Capture that\nsurvives", href: "courses/02-capture-that-survives.html", color: "#7FD8CB",
+      concepts: [
+        { label: "Keep what resonates, fast", href: "courses/02-capture-that-survives.html" },
+        { label: "The title is the handle", href: "courses/02-capture-that-survives.html" },
+        { label: "One inbox", href: "courses/02-capture-that-survives.html" } ] },
+    { label: "PARA, and one\nhome per note", href: "courses/03-para-and-one-home.html", color: "#FBBF24",
+      concepts: [
+        { label: "Organize by actionability", href: "courses/03-para-and-one-home.html" },
+        { label: "A project has a finish line", href: "courses/03-para-and-one-home.html" },
+        { label: "One home, plus a pointer", href: "courses/03-para-and-one-home.html" } ] },
+    { label: "The retrieval\nbench", href: "courses/04-the-retrieval-bench.html", color: "#F87171",
+      concepts: [
+        { label: "0 of 16 in one folder", href: "courses/04-the-retrieval-bench.html" },
+        { label: "Tidying is not finding", href: "courses/04-the-retrieval-bench.html" },
+        { label: "192 decisions, 0 answers", href: "courses/04-the-retrieval-bench.html" } ] },
+    { label: "Review that\nactually happens", href: "courses/05-review-that-actually-happens.html", color: "#FBBF24",
+      concepts: [
+        { label: "Recall before you look", href: "courses/05-review-that-actually-happens.html" },
+        { label: "The gap that grows", href: "courses/05-review-that-actually-happens.html" },
+        { label: "Fifteen minutes, four moves", href: "courses/05-review-that-actually-happens.html" } ] },
+    { label: "A system\nyou keep", href: "courses/06-a-system-you-keep.html", color: "#FB923C",
+      concepts: [
+        { label: "The bad-week version", href: "courses/06-a-system-you-keep.html" },
+        { label: "Coming back after a month", href: "courses/06-a-system-you-keep.html" },
+        { label: "Final scorecard", href: "courses/06-a-system-you-keep.html" } ] }
+  ]
+};
+</script>
+<script src="assets/mindmap.js?v=1"></script>
+<script src="assets/app.js?v=1"></script>
+</body>
+</html>
